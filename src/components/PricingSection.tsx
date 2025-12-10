@@ -55,7 +55,7 @@ export const PricingSection = () => {
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-1">
                 <span className="text-muted-foreground text-lg">R$</span>
-                <span className="text-5xl font-extrabold text-foreground">10,00</span>
+                <span className="text-5xl font-extrabold text-foreground">12,90</span>
               </div>
               <p className="text-accent font-medium mt-2">Acesso Vitalício</p>
               <p className="text-muted-foreground text-sm mt-1">Uma parcela e pronto!</p>
