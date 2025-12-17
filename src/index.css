@@ -4,50 +4,53 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 84% 5%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 84% 5%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 84% 5%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 217 91% 60%;
+    --primary: 0 72% 51%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --accent: 45 93% 58%;
-    --accent-foreground: 222 47% 11%;
+    --accent-foreground: 0 0% 10%;
 
-    --success: 160 84% 39%;
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 72% 51%;
 
     --radius: 0.5rem;
 
-    /* Custom colors */
-    --hero-start: 217 91% 68%;
-    --hero-end: 217 91% 55%;
-    --cta-start: 160 84% 39%;
-    --cta-end: 160 84% 29%;
-    --gold-start: 43 96% 56%;
+    /* Christmas colors */
+    --christmas-red: 0 72% 51%;
+    --christmas-green: 142 76% 36%;
+    --christmas-gold: 45 93% 58%;
+    --hero-start: 0 72% 55%;
+    --hero-end: 0 72% 40%;
+    --cta-start: 142 76% 36%;
+    --cta-end: 142 76% 28%;
+    --gold-start: 45 93% 58%;
     --gold-end: 38 92% 50%;
-    --benefit-blue: 217 91% 60%;
-    --benefit-purple: 263 70% 58%;
-    --benefit-green: 160 84% 39%;
-    --benefit-orange: 24 95% 53%;
+    --benefit-blue: 0 72% 51%;
+    --benefit-purple: 142 76% 36%;
+    --benefit-green: 142 76% 36%;
+    --benefit-orange: 0 72% 51%;
   }
 
   .dark {
@@ -276,4 +279,17 @@
   to {
     box-shadow: 0 0 25px hsla(var(--primary), 0.6);
   }
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
 }
