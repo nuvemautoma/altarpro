@@ -8,6 +8,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { GuaranteeSection } from "@/components/GuaranteeSection";
 import { Footer } from "@/components/Footer";
 import { PurchaseNotification } from "@/components/PurchaseNotification";
+import { SnowfallEffect, ChristmasMusic, ChristmasDecorations } from "@/components/ChristmasEffects";
 
 const Index = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
@@ -18,6 +19,11 @@ const Index = () => {
 
   return (
     <main className="min-h-screen">
+      {/* Christmas Effects */}
+      <SnowfallEffect />
+      <ChristmasDecorations />
+      <ChristmasMusic />
+      
       <PurchaseNotification />
       <HeroSection onCtaClick={scrollToPricing} />
       <WhyChooseSection onCtaClick={scrollToPricing} />
