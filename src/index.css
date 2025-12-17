@@ -48,6 +48,11 @@
     --benefit-purple: 263 70% 58%;
     --benefit-green: 160 84% 39%;
     --benefit-orange: 24 95% 53%;
+    
+    /* Christmas colors */
+    --christmas-red: 0 72% 50%;
+    --christmas-green: 140 60% 35%;
+    --christmas-gold: 45 93% 58%;
   }
 
   .dark {
@@ -276,4 +281,49 @@
   to {
     box-shadow: 0 0 25px hsla(var(--primary), 0.6);
   }
+}
+
+/* Christmas Animations */
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+@keyframes christmas-lights {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px currentColor;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 5px currentColor;
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+.animate-christmas-lights {
+  animation: christmas-lights 1s ease-in-out infinite;
+}
+
+.bg-christmas-red {
+  background-color: hsl(var(--christmas-red));
+}
+
+.bg-christmas-green {
+  background-color: hsl(var(--christmas-green));
+}
+
+.text-christmas-red {
+  color: hsl(var(--christmas-red));
+}
+
+.text-christmas-green {
+  color: hsl(var(--christmas-green));
 }

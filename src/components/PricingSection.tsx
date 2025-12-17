@@ -2,6 +2,9 @@ import { Sun, Crown, Check, Clock, Trophy, Sparkles } from "lucide-react";
 
 const luzFeatures = [
   "35 Livros de Colorir Digitais",
+  "Cartas Especiais de Oração",
+  "Certificado para a Criança",
+  "Carta Explicativa aos Pais",
   "Suporte por E-mail",
   "Garantia de 7 Dias",
   "DIREITO DE REVENDA",
