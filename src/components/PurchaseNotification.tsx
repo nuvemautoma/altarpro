@@ -46,7 +46,7 @@ export const PurchaseNotification = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-5 right-5 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary rounded-xl p-4 shadow-xl z-[100] max-w-xs animate-fade-in-up backdrop-blur-sm">
+    <div className="fixed top-5 right-5 bg-white border-2 border-primary rounded-xl p-4 shadow-xl z-[100] max-w-xs animate-fade-in-up">
       <div className="absolute -top-3 -left-3 text-2xl animate-bounce-subtle">🎄</div>
       <div className="absolute -top-3 -right-8 text-2xl animate-bounce-subtle">🎅</div>
       <button
