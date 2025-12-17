@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, Gift } from "lucide-react";
 
 const brazilianNames = [
   "Maria", "Ana", "Julia", "Patricia", "Fernanda", "Camila", "Amanda", "Bruna",
@@ -46,15 +46,20 @@ export const PurchaseNotification = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-5 right-5 bg-card border-2 border-success rounded-xl p-4 shadow-xl z-50 max-w-xs animate-fade-in-up">
+    <div className="fixed top-5 right-5 bg-gradient-to-br from-primary/10 to-secondary/10 border-2 border-primary rounded-xl p-4 shadow-xl z-[100] max-w-xs animate-fade-in-up backdrop-blur-sm">
+      <div className="absolute -top-3 -left-3 text-2xl animate-bounce-subtle">🎄</div>
+      <div className="absolute -top-3 -right-8 text-2xl animate-bounce-subtle">🎅</div>
       <button
         onClick={() => setIsVisible(false)}
         className="absolute top-2 right-3 text-muted-foreground hover:text-foreground"
       >
         <X className="w-4 h-4" />
       </button>
-      <div className="font-semibold text-success mb-1">{customer.name}</div>
-      <div className="text-sm text-foreground mb-1">Adquiriu o Pacote Premium</div>
+      <div className="flex items-center gap-2 font-semibold text-primary mb-1">
+        <Gift className="w-4 h-4" />
+        <span>{customer.name}</span>
+      </div>
+      <div className="text-sm text-foreground mb-1">🎁 Presente de Natal garantido!</div>
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>{customer.location}</span>
         <span>{customer.time}</span>

@@ -2,6 +2,8 @@ import { Sun, Crown, Check, Clock, Trophy, Sparkles } from "lucide-react";
 
 const luzFeatures = [
   "35 Livros de Colorir Digitais",
+  "Cartões de Orações Kids",
+  "Certificado para Crianças",
   "Suporte por E-mail",
   "Garantia de 7 Dias",
   "DIREITO DE REVENDA",
@@ -30,7 +32,7 @@ export const PricingSection = () => {
         {/* Limited Offer Alert */}
         <div className="bg-gradient-danger text-white py-3 px-6 rounded-full flex items-center justify-center gap-2 mx-auto w-fit mb-8 font-semibold text-sm animate-pulse">
           <Clock className="w-4 h-4" />
-          <span>OFERTA LIMITADA - Apenas no dia {formattedDate}</span>
+          <span>🎄 OFERTA DE NATAL - Apenas no dia {formattedDate} 🎅</span>
         </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-foreground animate-fade-in">
