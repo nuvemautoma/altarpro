@@ -11,9 +11,9 @@ const luzFeatures = [
 
 const altarProFeatures = [
   "TUDO do Plano LUZ",
-  "TUDO do Plano CHAMA",
+  "App Educativo - Ensina Crianças a Orar",
+  "Cartões Bíblicos + Desafio 7 Dias",
   "CONTEÚDO COMPLETO",
-  "Atualizações Vitalícias",
   "Suporte Prioritário",
   "DIREITO DE REVENDA",
 ];
