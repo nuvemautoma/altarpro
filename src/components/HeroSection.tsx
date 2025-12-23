@@ -55,8 +55,8 @@ export const HeroSection = ({ onCtaClick }: HeroSectionProps) => {
           {/* Hero Text */}
           <div className="text-center lg:text-left order-2 lg:order-2 animate-fade-in-up">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">
-              35 Livros de Colorir{" "}
-              <span className="text-gradient-gold font-black">Cristãos</span>
+              Kit Infantil{" "}
+              <span className="text-gradient-gold font-black">Cristão</span>
             </h1>
             <p className="text-lg md:text-xl opacity-90 mb-8">
               Transforme momentos especiais com sua família, célula e escola dominical
