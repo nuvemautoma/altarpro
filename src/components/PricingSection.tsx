@@ -1,4 +1,4 @@
-import { Sun, Crown, Check, Clock, Trophy, Sparkles } from "lucide-react";
+import { Sun, Crown, Check, Clock, Trophy, Sparkles, Gift } from "lucide-react";
 
 const luzFeatures = [
   "Kit Infantil Cristão",
@@ -60,6 +60,12 @@ export const PricingSection = () => {
                 <span className="text-muted-foreground text-lg">R$</span>
                 <span className="text-5xl font-extrabold text-foreground">12,90</span>
               </div>
+              <div className="flex items-center justify-center gap-2 mt-2">
+                <div className="bg-success/20 text-success px-3 py-1 rounded-lg flex items-center gap-1 text-sm font-semibold">
+                  <Gift className="w-4 h-4" />
+                  <span>33% OFF</span>
+                </div>
+              </div>
               <p className="text-accent font-medium mt-2">Acesso Vitalício</p>
               <p className="text-muted-foreground text-sm mt-1">Uma parcela e pronto!</p>
             </div>
@@ -105,7 +111,13 @@ export const PricingSection = () => {
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-1">
                 <span className="text-muted-foreground text-lg">R$</span>
-                <span className="text-5xl font-extrabold text-foreground">15,90</span>
+                <span className="text-5xl font-extrabold text-foreground">13,97</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-2">
+                <div className="bg-accent/20 text-accent px-3 py-1 rounded-lg flex items-center gap-1 text-sm font-semibold">
+                  <Gift className="w-4 h-4" />
+                  <span>33% OFF</span>
+                </div>
               </div>
               <p className="text-accent font-medium mt-2">Acesso Vitalício</p>
               <p className="text-muted-foreground text-sm mt-1">Uma parcela e pronto!</p>
