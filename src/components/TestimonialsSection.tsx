@@ -57,13 +57,12 @@ export const TestimonialsSection = () => {
       <div className="container mx-auto px-4 lg:px-10">
         {/* Header */}
         <div className="text-center mb-10 animate-fade-in-up">
-          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <MessageCircle className="w-4 h-4" />
-            Depoimentos reais
-          </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
-            Veja o que as mães estão dizendo
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground mb-3">
+            Famílias <span className="text-primary">Felizes</span>
           </h2>
+          <p className="text-muted-foreground text-lg">
+            Veja o que pais estão dizendo sobre o Altar Pro
+          </p>
           
           {/* Rating */}
           <div className="flex flex-col items-center gap-2 mt-4">
