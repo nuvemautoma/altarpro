@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
 
 const productImages = [
   "https://i.ibb.co/Q7kYm6bT/1-1.webp",
@@ -47,7 +47,7 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setItemsPerView(window.innerWidth < 768 ? 2 : 2);
+      setItemsPerView(window.innerWidth < 768 ? 2 : 3);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -64,7 +64,6 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   };
 
-  // Auto-slide functionality
   useEffect(() => {
     const startAutoSlide = () => {
       if (autoSlideRef.current) {
@@ -93,36 +92,42 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
     } else {
       nextSlide();
     }
-    // Resume auto-slide after 5 seconds of inactivity
     setTimeout(() => setIsPaused(false), 5000);
   };
 
   return (
-    <section className="py-12 bg-background">
+    <section className="py-16 bg-card">
       <div className="container mx-auto px-4 lg:px-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-foreground">
-          Conheça Nossos Livros de Colorir
-        </h2>
-        <p className="text-center text-muted-foreground text-lg mb-8">
-          Livros únicos para momentos de fé e relaxamento
-        </p>
+        {/* Header */}
+        <div className="text-center mb-10 animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <Star className="w-4 h-4" />
+            Veja o material
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+            Conheça os livros e atividades
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Material de qualidade profissional, pronto para imprimir
+          </p>
+        </div>
 
         {/* Carousel */}
         <div 
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-5xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           <button
             onClick={() => handleManualNav('prev')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-card/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-success hover:text-success-foreground transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 md:-translate-x-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-card shadow-xl rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
           <button
             onClick={() => handleManualNav('next')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-card/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center hover:bg-success hover:text-success-foreground transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 md:translate-x-6 z-10 w-10 h-10 md:w-12 md:h-12 bg-card shadow-xl rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -140,8 +145,8 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
                 >
                   <img
                     src={src}
-                    alt={`Livro de Colorir Cristão ${index + 1}`}
-                    className="w-full h-56 md:h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+                    alt={`Material do Kit Infantil Cristão ${index + 1}`}
+                    className="w-full h-48 md:h-72 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               ))}
@@ -149,8 +154,8 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
           </div>
 
           {/* Progress dots */}
-          <div className="flex justify-center mt-4 gap-1">
-            {[...Array(Math.min(10, Math.ceil(productImages.length / itemsPerView)))].map((_, index) => (
+          <div className="flex justify-center mt-6 gap-1.5">
+            {[...Array(Math.min(8, Math.ceil(productImages.length / itemsPerView)))].map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
@@ -158,9 +163,9 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
                   setIsPaused(true);
                   setTimeout(() => setIsPaused(false), 5000);
                 }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   Math.floor(currentIndex / itemsPerView) === index 
-                    ? 'bg-success w-6' 
+                    ? 'bg-primary w-8' 
                     : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
                 }`}
               />
@@ -168,12 +173,16 @@ export const ProductsGallery = ({ onCtaClick }: ProductsGalleryProps) => {
           </div>
         </div>
 
-        <button
-          onClick={onCtaClick}
-          className="block mx-auto mt-8 bg-gradient-cta text-success-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg animate-pulse-cta"
-        >
-          QUERO VER AS OFERTAS
-        </button>
+        {/* CTA */}
+        <div className="text-center mt-10 animate-fade-in-up">
+          <button
+            onClick={onCtaClick}
+            className="group bg-gradient-cta text-primary-foreground px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-3 mx-auto"
+          >
+            VER PLANOS E PREÇOS
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -1,26 +1,31 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 const faqs = [
   {
-    question: "Como recebo os livros?",
+    question: "Como recebo o material?",
     answer:
-      "Após a confirmação do pagamento, você receberá um email com o link para download dos 35 livros em formato PDF. O acesso é imediato e vitalício.",
+      "Após a confirmação do pagamento, você recebe imediatamente um email com o link de acesso. Todo o material é digital e pode ser acessado pelo celular, tablet ou computador.",
   },
   {
     question: "Posso imprimir quantas vezes quiser?",
     answer:
-      "Sim! Com o acesso vitalício, você pode imprimir quantas cópias precisar para uso pessoal, familiar ou em atividades da igreja.",
+      "Sim! Com o acesso vitalício, você pode imprimir quantas cópias precisar para uso pessoal, familiar, na igreja ou escola dominical.",
   },
   {
-    question: "Qual a faixa etária recomendada?",
+    question: "Qual a faixa etária indicada?",
     answer:
-      "Os livros são adequados para crianças de 3 a 12 anos, com diferentes níveis de complexidade para cada faixa etária.",
+      "O material foi desenvolvido para crianças de 3 a 12 anos, com atividades de diferentes níveis de complexidade para cada idade.",
   },
   {
-    question: "Como funciona o bônus mensal?",
+    question: "Funciona no celular?",
     answer:
-      "No pacote Premium, você recebe 2 livros novos todo mês durante um ano, totalizando 24 livros extras com temas sazonais e especiais.",
+      "Sim! Todo o conteúdo pode ser acessado diretamente pelo celular ou tablet. Você também pode baixar e imprimir se preferir.",
+  },
+  {
+    question: "Como funciona a garantia?",
+    answer:
+      "Você tem 7 dias para testar. Se não gostar ou achar que não serve para sua família, basta nos enviar um email e devolvemos 100% do seu dinheiro.",
   },
 ];
 
@@ -36,25 +41,34 @@ export const FAQSection = ({ onCtaClick }: FAQSectionProps) => {
   };
 
   return (
-    <section className="py-12 bg-card">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4 lg:px-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-foreground">
-          Perguntas Frequentes
-        </h2>
+        {/* Header */}
+        <div className="text-center mb-10 animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <HelpCircle className="w-4 h-4" />
+            Tire suas dúvidas
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+            Perguntas Frequentes
+          </h2>
+        </div>
 
-        <div className="max-w-3xl mx-auto space-y-3 mb-8">
+        {/* FAQ Items */}
+        <div className="max-w-3xl mx-auto space-y-4 mb-10">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-border rounded-2xl overflow-hidden"
+              className="border border-border rounded-2xl overflow-hidden bg-card animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full flex items-center justify-between p-5 bg-muted/50 hover:bg-muted transition-colors text-left"
+                className="w-full flex items-center justify-between p-5 hover:bg-muted/50 transition-colors text-left"
               >
-                <span className="font-semibold text-foreground">{faq.question}</span>
+                <span className="font-semibold text-foreground pr-4">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-muted-foreground transition-transform duration-300 ${
+                  className={`w-5 h-5 text-primary transition-transform duration-300 flex-shrink-0 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
@@ -64,18 +78,21 @@ export const FAQSection = ({ onCtaClick }: FAQSectionProps) => {
                   openIndex === index ? "max-h-48" : "max-h-0"
                 }`}
               >
-                <p className="p-5 text-muted-foreground leading-relaxed">{faq.answer}</p>
+                <p className="px-5 pb-5 text-muted-foreground leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <button
-          onClick={onCtaClick}
-          className="block mx-auto bg-gradient-cta text-success-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg"
-        >
-          TIREI MINHAS DÚVIDAS, QUERO COMPRAR
-        </button>
+        {/* CTA */}
+        <div className="text-center animate-fade-in-up">
+          <button
+            onClick={onCtaClick}
+            className="bg-gradient-cta text-primary-foreground px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl"
+          >
+            TIREI MINHAS DÚVIDAS - QUERO COMPRAR
+          </button>
+        </div>
       </div>
     </section>
   );

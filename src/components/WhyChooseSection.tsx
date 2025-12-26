@@ -1,30 +1,29 @@
-import { Users, Church, Heart, GraduationCap } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { Palette, Heart, BookOpen, Users, Star, ArrowRight } from "lucide-react";
 
-const benefits = [
+const features = [
   {
-    icon: Users,
-    title: "Células e Grupos",
-    description: "Atividades interativas para engajar crianças durante reuniões",
-    gradient: "bg-gradient-benefit-blue",
-  },
-  {
-    icon: Church,
-    title: "Escola Dominical",
-    description: "Material complementar para aulas mais dinâmicas e envolventes",
+    icon: Palette,
+    title: "Livros de Colorir Bíblicos",
+    description: "Desenhos de histórias da Bíblia para colorir e aprender",
     gradient: "bg-gradient-benefit-purple",
   },
   {
     icon: Heart,
-    title: "Devocional Familiar",
-    description: "Momentos especiais de conexão com Deus em família",
-    gradient: "bg-gradient-benefit-green",
+    title: "Cartões de Oração",
+    description: "Ensina as crianças a conversar com Deus de forma simples",
+    gradient: "bg-gradient-benefit-pink",
   },
   {
-    icon: GraduationCap,
-    title: "Uso Pedagógico",
-    description: "Ferramenta educativa que desenvolve coordenação e criatividade",
-    gradient: "bg-gradient-benefit-orange",
+    icon: BookOpen,
+    title: "Devocional Infantil",
+    description: "Atividades diárias para crescer na fé em família",
+    gradient: "bg-gradient-benefit-blue",
+  },
+  {
+    icon: Users,
+    title: "Para Toda a Família",
+    description: "Material perfeito para células, escola dominical e casa",
+    gradient: "bg-gradient-benefit-green",
   },
 ];
 
@@ -33,87 +32,82 @@ interface WhyChooseSectionProps {
 }
 
 export const WhyChooseSection = ({ onCtaClick }: WhyChooseSectionProps) => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calculate how much of the section is visible
-      const visibleStart = windowHeight - rect.top;
-      const progress = Math.min(Math.max(visibleStart / (windowHeight * 0.5), 0), 1);
-      
-      setScrollProgress(progress);
-      setIsVisible(rect.top < windowHeight * 0.8);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section 
-      ref={sectionRef}
-      className="relative py-12 bg-card z-10"
-      style={{
-        opacity: scrollProgress,
-        transform: `translateY(${(1 - scrollProgress) * 30}px)`,
-        transition: 'opacity 0.1s ease-out, transform 0.1s ease-out',
-      }}
-    >
-      {/* Overlay fade effect from hero */}
-      <div 
-        className="absolute inset-x-0 -top-32 h-32 bg-gradient-to-b from-transparent to-card pointer-events-none"
-        style={{ opacity: scrollProgress }}
-      />
-      
+    <section className="py-16 bg-card">
       <div className="container mx-auto px-4 lg:px-10">
-        <h2 
-          className={`text-2xl md:text-3xl font-bold text-center mb-10 text-foreground transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          Por que escolher nossos livros?
-        </h2>
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <Star className="w-4 h-4" />
+            Conheça o Altar Pro
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+            Tudo que você precisa para
+            <br />
+            <span className="text-primary">educar seus filhos na fé</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Um kit completo de atividades cristãs desenvolvido especialmente 
+            para fortalecer a fé das crianças de forma divertida
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          {benefits.map((benefit, index) => (
+        {/* Features Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {features.map((feature, index) => (
             <div
-              key={benefit.title}
-              className={`bg-card p-6 rounded-2xl shadow-lg text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-500 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              }`}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 150}ms` : '0ms',
-              }}
+              key={feature.title}
+              className="bg-background p-6 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div
-                className={`w-16 h-16 ${benefit.gradient} rounded-full flex items-center justify-center mx-auto mb-4 animate-float`}
+                className={`w-16 h-16 ${feature.gradient} rounded-full flex items-center justify-center mx-auto mb-5 animate-float`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <benefit.icon className="w-7 h-7 text-white" />
+                <feature.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-3 text-foreground">{benefit.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+              <h3 className="text-lg font-bold text-foreground mb-3">{feature.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        <button
-          onClick={onCtaClick}
-          className={`block mx-auto bg-gradient-cta text-success-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all duration-500 shadow-lg animate-pulse-cta ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: isVisible ? '600ms' : '0ms' }}
-        >
-          QUERO VER AS OFERTAS
-        </button>
+        {/* Benefits List */}
+        <div className="bg-gradient-trust rounded-3xl p-8 md:p-10 max-w-3xl mx-auto mb-10 animate-fade-in-up">
+          <h3 className="text-xl font-bold text-foreground text-center mb-6">
+            O que seu filho vai aprender:
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              "Histórias bíblicas de forma lúdica",
+              "Como fazer suas próprias orações",
+              "Valores cristãos para a vida",
+              "Conexão mais profunda com Deus",
+              "Coordenação e criatividade",
+              "Disciplina espiritual desde cedo",
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-3">
+                <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center animate-fade-in-up">
+          <button
+            onClick={onCtaClick}
+            className="group bg-gradient-cta text-primary-foreground px-10 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-3 mx-auto"
+          >
+            VER PLANOS E PREÇOS
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
     </section>
   );
