@@ -1,22 +1,22 @@
-import { Sun, Crown, Check, Clock, Trophy, Sparkles, Gift } from "lucide-react";
+import { Sun, Crown, Check, Clock, Trophy, Sparkles, Gift, ArrowRight } from "lucide-react";
 
 const luzFeatures = [
-  "Kit Infantil Cristão",
+  "Kit Infantil Cristão Completo",
   "Alfabetização Infantil",
   "Cartões de Orações Kids",
   "Certificado para Crianças",
   "Suporte por E-mail",
   "Garantia de 7 Dias",
-  "DIREITO DE REVENDA",
+  "Direito de Revenda",
 ];
 
 const altarProFeatures = [
-  "TUDO do Plano LUZ",
-  "App Educativo - Ensina Crianças a Orar",
-  "Cartões Bíblicos + Desafio 7 Dias",
-  "CONTEÚDO COMPLETO",
+  "TUDO do Plano LUZ +",
+  "App Educativo - Ensina a Orar",
+  "Cartões Bíblicos",
+  "Desafio Bíblico 7 Dias",
   "Suporte Prioritário",
-  "DIREITO DE REVENDA",
+  "Direito de Revenda",
 ];
 
 export const PricingSection = () => {
@@ -28,56 +28,64 @@ export const PricingSection = () => {
   });
 
   return (
-    <section id="pricing" className="py-12 bg-card">
+    <section id="pricing" className="py-16 bg-background">
       <div className="container mx-auto px-4 lg:px-10">
         {/* Limited Offer Alert */}
         <div className="bg-gradient-danger text-white py-3 px-6 rounded-full flex items-center justify-center gap-2 mx-auto w-fit mb-8 font-semibold text-sm animate-pulse">
           <Clock className="w-4 h-4" />
-          <span>🎄 OFERTA DE NATAL - Apenas no dia {formattedDate} 🎅</span>
+          <span>⚡ OFERTA LIMITADA - Válida apenas hoje {formattedDate}</span>
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-foreground animate-fade-in">
-          Escolha Sua Oferta Especial
-        </h2>
-        <p className="text-center text-muted-foreground text-lg mb-8 animate-fade-in">
-          Livros de qualidade profissional para enriquecer seus momentos de fé
-        </p>
+        {/* Header */}
+        <div className="text-center mb-10 animate-fade-in-up">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+            Escolha o plano ideal para sua família
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Investimento único · Acesso vitalício · Sem mensalidades
+          </p>
+        </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
           {/* Plano LUZ */}
-          <div className="bg-card rounded-2xl p-6 shadow-lg hover:-translate-y-2 transition-all duration-300 animate-fade-in-up border border-border/50 hover:shadow-xl hover:border-accent/30">
-            <div className="flex flex-col items-center justify-center gap-2 mb-6 mt-2">
-              <span className="text-muted-foreground text-sm uppercase tracking-wider">Plano</span>
+          <div className="bg-card rounded-3xl p-8 shadow-xl border border-border/50 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up">
+            <div className="flex flex-col items-center justify-center gap-2 mb-6">
               <div className="flex items-center gap-2">
-                <Sun className="w-8 h-8 text-amber-400" />
-                <h3 className="text-2xl font-bold text-foreground">LUZ</h3>
+                <Sun className="w-8 h-8 text-amber-500" />
+                <h3 className="text-2xl font-bold text-foreground">Plano LUZ</h3>
               </div>
+              <span className="text-muted-foreground text-sm">Ideal para começar</span>
             </div>
 
             <div className="text-center mb-6">
-              <div className="flex items-center justify-center gap-1">
+              <div className="flex items-baseline justify-center gap-1">
                 <span className="text-muted-foreground text-lg">R$</span>
                 <span className="text-5xl font-extrabold text-foreground">12,90</span>
               </div>
-              <div className="flex items-center justify-center gap-2 mt-2">
-                <div className="bg-success/20 text-success px-3 py-1 rounded-lg flex items-center gap-1 text-sm font-semibold">
+              
+              {/* Discount Badge */}
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <span className="line-through text-muted-foreground text-sm">De R$ 19,90</span>
+                <div className="bg-success/15 text-success px-3 py-1 rounded-full flex items-center gap-1.5 text-sm font-bold">
                   <Gift className="w-4 h-4" />
-                  <span>33% OFF</span>
+                  <span>35% OFF</span>
                 </div>
               </div>
-              <p className="text-accent font-medium mt-2">Acesso Vitalício</p>
-              <p className="text-muted-foreground text-sm mt-1">Uma parcela e pronto!</p>
+              
+              <p className="text-primary font-semibold mt-3">Pagamento único · Acesso vitalício</p>
             </div>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3 mb-8">
               {luzFeatures.map((feature, index) => (
                 <div 
                   key={feature} 
-                  className="flex items-center gap-3 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="flex items-center gap-3"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <Check className="w-5 h-5 text-success flex-shrink-0" />
+                  <div className="w-5 h-5 rounded-full bg-success/20 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-success" />
+                  </div>
                   <span className="text-foreground">{feature}</span>
                 </div>
               ))}
@@ -85,52 +93,57 @@ export const PricingSection = () => {
 
             <a
               href="https://pay.cakto.com.br/y2dp3os_680781"
-              className="block w-full bg-gradient-cta text-success-foreground py-4 rounded-2xl font-semibold text-center animate-pulse-cta hover:scale-105 transition-transform"
+              className="block w-full bg-gradient-cta-secondary text-white py-4 rounded-2xl font-bold text-center hover:scale-105 transition-transform shadow-lg"
             >
-              QUERO O PLANO LUZ
+              COMEÇAR AGORA
             </a>
           </div>
 
           {/* Plano ALTAR PRO */}
-          <div className="bg-card rounded-2xl p-6 shadow-lg border-4 border-accent relative md:scale-105 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up hover:shadow-2xl">
+          <div className="bg-card rounded-3xl p-8 shadow-2xl border-2 border-primary relative md:scale-105 hover:-translate-y-2 transition-all duration-300 animate-fade-in-up">
             {/* Best Seller Badge */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white py-2 px-4 rounded-full text-xs font-semibold flex items-center gap-2 whitespace-nowrap animate-bounce">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-gold text-white py-2 px-5 rounded-full text-sm font-bold flex items-center gap-2 whitespace-nowrap shadow-lg">
               <Trophy className="w-4 h-4" />
               MAIS VENDIDO
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-2 mb-6 mt-4">
-              <span className="text-muted-foreground text-sm uppercase tracking-wider">Plano</span>
+            <div className="flex flex-col items-center justify-center gap-2 mb-6 mt-3">
               <div className="flex items-center gap-2">
-                <Crown className="w-8 h-8 text-accent" />
-                <h3 className="text-2xl font-bold text-accent">ALTAR PRO</h3>
-                <Sparkles className="w-5 h-5 text-accent animate-pulse" />
+                <Crown className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-bold text-primary">ALTAR PRO</h3>
+                <Sparkles className="w-5 h-5 text-primary animate-pulse" />
               </div>
+              <span className="text-muted-foreground text-sm">Conteúdo completo</span>
             </div>
 
             <div className="text-center mb-6">
-              <div className="flex items-center justify-center gap-1">
+              <div className="flex items-baseline justify-center gap-1">
                 <span className="text-muted-foreground text-lg">R$</span>
                 <span className="text-5xl font-extrabold text-foreground">13,97</span>
               </div>
-              <div className="flex items-center justify-center gap-2 mt-2">
-                <div className="bg-accent/20 text-accent px-3 py-1 rounded-lg flex items-center gap-1 text-sm font-semibold">
+              
+              {/* Discount Badge */}
+              <div className="flex items-center justify-center gap-2 mt-3">
+                <span className="line-through text-muted-foreground text-sm">De R$ 29,90</span>
+                <div className="bg-primary/15 text-primary px-3 py-1 rounded-full flex items-center gap-1.5 text-sm font-bold">
                   <Gift className="w-4 h-4" />
-                  <span>33% OFF</span>
+                  <span>53% OFF</span>
                 </div>
               </div>
-              <p className="text-accent font-medium mt-2">Acesso Vitalício</p>
-              <p className="text-muted-foreground text-sm mt-1">Uma parcela e pronto!</p>
+              
+              <p className="text-primary font-semibold mt-3">Pagamento único · Acesso vitalício</p>
             </div>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3 mb-8">
               {altarProFeatures.map((feature, index) => (
                 <div 
                   key={feature} 
-                  className="flex items-center gap-3 animate-fade-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className="flex items-center gap-3"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <Check className="w-5 h-5 text-accent flex-shrink-0" />
+                  <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-3 h-3 text-primary" />
+                  </div>
                   <span className="text-foreground font-medium">{feature}</span>
                 </div>
               ))}
@@ -138,13 +151,14 @@ export const PricingSection = () => {
 
             <a
               href="https://pay.cakto.com.br/rs6wvr9"
-              className="block w-full bg-gradient-gold text-white py-4 rounded-2xl font-semibold text-center animate-pulse-gold hover:scale-105 transition-transform"
+              className="group block w-full bg-gradient-cta text-white py-4 rounded-2xl font-bold text-center hover:scale-105 transition-all duration-300 shadow-xl animate-pulse-cta flex items-center justify-center gap-2"
             >
-              QUERO O PLANO ALTAR PRO
+              QUERO O ALTAR PRO
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
             <p className="text-center text-muted-foreground text-sm mt-4">
-              +500 pessoas já escolheram este plano
+              ⭐ +500 famílias já escolheram este plano
             </p>
           </div>
         </div>
