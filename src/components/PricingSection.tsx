@@ -1,4 +1,4 @@
-import { Sun, Crown, Check, Clock, Trophy, Sparkles, Gift, ArrowRight } from "lucide-react";
+import { Sun, Crown, Check, Clock, Trophy, Sparkles, Gift, ArrowRight, Star, Shield, Lock, BadgeCheck } from "lucide-react";
 
 const luzFeatures = [
   "Kit Infantil Cristão Completo",
@@ -28,21 +28,31 @@ export const PricingSection = () => {
   });
 
   return (
-    <section id="pricing" className="py-16 bg-background">
-      <div className="container mx-auto px-4 lg:px-10">
-        {/* Limited Offer Alert */}
-        <div className="bg-gradient-danger text-white py-3 px-6 rounded-full flex items-center justify-center gap-2 mx-auto w-fit mb-8 font-semibold text-sm animate-pulse">
-          <Clock className="w-4 h-4" />
-          <span>⚡ OFERTA LIMITADA - Válida apenas hoje {formattedDate}</span>
+    <section id="pricing" className="py-16 bg-gradient-hero text-primary-foreground relative overflow-hidden">
+      {/* Wave Top */}
+      <div className="absolute top-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="hsl(var(--background))"/>
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-10 relative z-10 pt-8">
+        {/* Special Offer Badge */}
+        <div className="flex justify-center mb-6 animate-fade-in-up">
+          <span className="bg-white text-primary px-5 py-2 rounded-full flex items-center gap-2 font-bold text-sm shadow-lg">
+            <Star className="w-4 h-4 text-amber-500" fill="currentColor" />
+            Oferta Especial
+          </span>
         </div>
 
         {/* Header */}
         <div className="text-center mb-10 animate-fade-in-up">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
-            Escolha o plano ideal para sua família
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4 leading-tight">
+            Não deixe para amanhã o que pode{" "}
+            <span className="text-gradient-gold">transformar a vida do seu filho(a) hoje!</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Investimento único · Acesso vitalício · Sem mensalidades
+          <p className="text-lg opacity-90">
+            Tudo que você precisa para criar uma rotina com Deus
           </p>
         </div>
 
@@ -151,17 +161,40 @@ export const PricingSection = () => {
 
             <a
               href="https://pay.cakto.com.br/rs6wvr9"
-              className="group block w-full bg-gradient-cta text-white py-4 rounded-2xl font-bold text-center hover:scale-105 transition-all duration-300 shadow-xl animate-pulse-cta flex items-center justify-center gap-2"
+              className="group block w-full bg-gradient-gold text-foreground py-4 rounded-2xl font-bold text-center hover:scale-105 transition-all duration-300 shadow-xl animate-pulse-gold flex items-center justify-center gap-2"
             >
               QUERO O ALTAR PRO
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
             <p className="text-center text-muted-foreground text-sm mt-4">
-              ⭐ +500 famílias já escolheram este plano
+              +500 famílias já escolheram este plano
             </p>
           </div>
         </div>
+
+        {/* Trust Badges */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mt-10 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+          <div className="flex items-center gap-2 text-white/90">
+            <Shield className="w-5 h-5" />
+            <span className="text-sm font-medium">Compra Segura</span>
+          </div>
+          <div className="flex items-center gap-2 text-white/90">
+            <BadgeCheck className="w-5 h-5" />
+            <span className="text-sm font-medium">Satisfação Garantida</span>
+          </div>
+          <div className="flex items-center gap-2 text-white/90">
+            <Lock className="w-5 h-5" />
+            <span className="text-sm font-medium">Privacidade Protegida</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Wave Bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+          <path d="M0 0L60 10C120 20 240 40 360 50C480 60 600 60 720 55C840 50 960 40 1080 35C1200 30 1320 30 1380 30L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="hsl(var(--background))"/>
+        </svg>
       </div>
     </section>
   );

@@ -1,20 +1,29 @@
-import { Smartphone, AlertCircle, HeartCrack, Sparkles } from "lucide-react";
+import { BookPlus, Frown, XCircle, Clock, HeadphonesIcon, Angry, Star } from "lucide-react";
 
-const problems = [
+const painPoints = [
   {
-    icon: Smartphone,
-    title: "Excesso de telas",
-    description: "Seu filho passa horas em conteúdos que não agregam nada à vida dele",
+    icon: BookPlus,
+    text: '"Eu não sei ensinar a Bíblia."',
   },
   {
-    icon: AlertCircle,
-    title: "Falta de conteúdo cristão",
-    description: "É difícil encontrar material infantil que ensine valores bíblicos",
+    icon: Frown,
+    text: '"Meu filho não presta atenção."',
   },
   {
-    icon: HeartCrack,
-    title: "Distância da fé",
-    description: "As crianças crescem sem conhecer as histórias e ensinamentos de Jesus",
+    icon: XCircle,
+    text: '"Já tentei outros devocionais e não funcionou."',
+  },
+  {
+    icon: Angry,
+    text: '"Tenho medo de não criar uma base cristã sólida."',
+  },
+  {
+    icon: Clock,
+    text: '"Quando vejo, o dia acabou e não fizemos nada."',
+  },
+  {
+    icon: HeadphonesIcon,
+    text: '"A culpa de não conseguir me acompanha todos os dias."',
   },
 ];
 
@@ -23,42 +32,38 @@ export const ProblemSection = () => {
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 lg:px-10">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" />
-            Você não está sozinha
-          </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Você sente que seu filho está se{" "}
-            <span className="text-primary">afastando de Deus?</span>
+        <div className="text-center mb-10 animate-fade-in-up">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+            Você se identifica com alguma dessas frases?
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Milhares de mães cristãs enfrentam os mesmos desafios todos os dias
+          <p className="text-muted-foreground text-lg">
+            Se sim, você não está sozinho(a).
           </p>
         </div>
 
-        {/* Problems Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          {problems.map((problem, index) => (
+        {/* Pain Point Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto mb-10">
+          {painPoints.map((point, index) => (
             <div
-              key={problem.title}
-              className="bg-card p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-all duration-300 animate-fade-in-up"
-              style={{ animationDelay: `${index * 150}ms` }}
+              key={point.text}
+              className="bg-card p-6 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-all duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-5">
-                <problem.icon className="w-8 h-8 text-destructive" />
+              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <point.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{problem.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
+              <p className="text-foreground font-bold text-lg leading-snug">{point.text}</p>
             </div>
           ))}
         </div>
 
-        {/* Transition Text */}
-        <div className="text-center animate-fade-in-up" style={{ animationDelay: "450ms" }}>
-          <p className="text-lg text-foreground font-medium">
-            Mas existe uma solução simples e acessível...
-          </p>
+        {/* Call to Action Box */}
+        <div className="max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "600ms" }}>
+          <div className="bg-destructive/10 border-2 border-destructive rounded-2xl p-6 md:p-8 text-center">
+            <p className="text-destructive font-extrabold text-xl md:text-2xl leading-relaxed">
+              Se você se identificou com pelo menos uma dessas frases, esse kit é para você.
+            </p>
+          </div>
         </div>
       </div>
     </section>
